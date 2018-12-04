@@ -1,17 +1,17 @@
-import { findLast } from "ramda";
+import { findLast, last, toPairs } from "ramda";
 
-import { RandomTable, RandomTableResult } from "./types";
+import { RandomTable } from "./types";
 
 export const dieTest = new RegExp(/(\d+)?d(\d+)([+-]\d+)?/);
 
 export const randRoll = (max: number) => Math.floor(Math.random() * max) + 1;
 
 export const lookupFromTable = (table: RandomTable) => (roll: number) => {
-  const result = findLast<RandomTableResult>(
-    ({ minRoll }) => minRoll <= roll,
-    table
+  const result = findLast(
+    ([minRoll]) => ((minRoll as any) as number) <= roll,
+    toPairs(table)
   );
-  return result || table[0];
+  return result ? last(result) : table[1];
 };
 
 export const dieResult = (sides: number) => () => randRoll(sides);

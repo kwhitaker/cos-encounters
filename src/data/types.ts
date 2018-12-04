@@ -22,13 +22,7 @@ export interface EncounterFactory {
 }
 
 export type EncountersMap = Record<number, (args?: any) => Encounter>;
-
-export interface RandomTableResult {
-  minRoll: number;
-  description: string;
-}
-
-export type RandomTable = RandomTableResult[];
+export type RandomTable = Record<number, string>;
 
 export const genericEncounter = (encounter: Encounter) => () =>
   identity(encounter);

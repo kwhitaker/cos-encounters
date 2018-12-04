@@ -49,26 +49,22 @@ describe("dice util methods", () => {
   });
 
   describe("#lookupFromTable", () => {
-    const table: RandomTable = [
-      { minRoll: 1, description: "Foo" },
-      { minRoll: 3, description: "Bar" },
-      { minRoll: 6, description: "Baz" }
-    ];
+    const table: RandomTable = { 1: "Foo", 2: "Bar", 6: "Baz" };
 
     const testLookup = lookupFromTable(table);
     it("returns a result from a RandomTable based on the number given", () => {
       const result = testLookup(3);
-      expect(result).toEqual(table[1]);
+      expect(result).toEqual(table[2]);
     });
 
     it("returns the first table entry if it can't find a match", () => {
       const result = testLookup(-1);
-      expect(result).toEqual(table[0]);
+      expect(result).toEqual(table[1]);
     });
 
     it("returns the last entry if the number is greater than the last minRoll", () => {
       const result = testLookup(10);
-      expect(result).toEqual(table[2]);
+      expect(result).toEqual(table[6]);
     });
   });
 });
