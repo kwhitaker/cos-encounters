@@ -15,3 +15,6 @@ export const lookupFromTable = (table: RandomTable) => (roll: number) => {
 };
 
 export const dieResult = (sides: number) => () => randRoll(sides);
+export const d100 = dieResult(100);
+export const d12 = dieResult(12);
+export const d8 = dieResult(8);

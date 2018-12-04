@@ -1,5 +1,5 @@
 import { Encounter, EncounterFactory, RandomTable } from "../../types";
-import { lookupFromTable, randRoll } from "../../dice-utils";
+import { d100, lookupFromTable } from "../../dice-utils";
 
 const trinkets: RandomTable = {
   1: "A picture you drew as a child of your imaginary friend",
@@ -40,7 +40,7 @@ const trinkets: RandomTable = {
   71: "Porcelain doll's head that always seems to be looking at you",
   73: "A wolf's head wrought in silver that is also a whistle.",
   75: "A small mirror that shows a much older version of the viewer",
-  77: "Small, worn book of children's nursery rhymes.",
+  77: "Small, worn book of children's nursery rhymes",
   79: "A mummified raven claw",
   81: "A broken pendent of a silver dragon that's always cold to the touch",
   83: "A small locked box that quietly hums a lovely melody at night but you always forget it in the morning",
@@ -59,7 +59,7 @@ const junkbox = lookupFromTable(trinkets);
 export const trinket: EncounterFactory = {
   dayRoll: 9,
   factory: (): Encounter => {
-    const trinket = junkbox(randRoll(100))!.toLowerCase();
+    const trinket = junkbox(d100())!.toLowerCase();
     return {
       encounter: `1 Trinket`,
       description: `You find something on the ground: ${trinket}.`
