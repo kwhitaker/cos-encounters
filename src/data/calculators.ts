@@ -35,18 +35,18 @@ export const calculateEncounter = (plugin?: NLPPlugin) => (
   const countStr = calcedStr.match(/\d+(?!.*\d)/);
 
   const count = countStr !== null ? parseInt(countStr[0], 0) : 1;
+
+  /* Compromise does some weird mutations, so we have to handle
+   * things like this in order to have it spit out the string like we
+   * expect.
+   * See https://stackoverflow.com/questions/53597270/pluralize-singularize-a-sentence-using-the-compromise-library-in-javascript
+   */
   const nlpStr = nlp(calcedStr);
 
   if (count > 1) {
-    nlpStr
-      .match("#Noun")
-      .nouns()
-      .toPlural();
+    nlpStr.nouns().toPlural();
   } else {
-    nlpStr
-      .match("#Noun")
-      .nouns()
-      .toSingular();
+    nlpStr.nouns().toSingular();
   }
 
   return {
