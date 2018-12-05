@@ -1,5 +1,7 @@
-import { PureComponent } from "react";
+import React, { PureComponent } from "react";
+import { equals } from "ramda";
 
+import { saveEncounter } from "./data/api";
 import encounters from "./data/encounters";
 import { factories, nlpNounPlugin } from "./data/encounters/factories";
 import { calculateEncounter } from "./data/calculators";
@@ -30,6 +32,15 @@ class App extends PureComponent<{}, AppState> {
     this.setState({ currentEncounter: this.calcEncounter() });
   }
 
+  componentDidUpdate(_: {}, prevState: AppState) {
+    const { currentEncounter: lastEncounter } = prevState;
+    const { currentEncounter } = this.state;
+
+    if (!equals(currentEncounter, lastEncounter) && currentEncounter) {
+      saveEncounter(currentEncounter);
+    }
+  }
+
   render() {
     const { timeOfDay } = this.state;
 
@@ -39,7 +50,7 @@ class App extends PureComponent<{}, AppState> {
         {this.renderEncounter()}
         <ActionsWrapper>
           <FateButton onClick={this.handleEncounterRolled}>
-            Tempt Fate Again&hellip;
+            Tempt Fate&hellip;
           </FateButton>
           <FateButton onClick={this.handleTimeOfDayChanged}>
             {timeOfDay === "dayTime" ? "Day" : "Night"}
@@ -59,7 +70,7 @@ class App extends PureComponent<{}, AppState> {
     return (
       <>
         <AppHeader>
-          <SubHeader>The Dark Powers Send Forth&hellip;</SubHeader>
+          <SubHeader>Through the Mists You Spy&hellip;</SubHeader>
           {encounter}!
         </AppHeader>
         <EncounterDescription>{description}</EncounterDescription>

@@ -8,6 +8,7 @@ export const werewolvesWolf: EncounterFactory = {
   nightRoll: 15,
   dictionary: {
     words: {
+      beast: "Adjective",
       form: "Ignore",
       werewolf: "Noun"
     },

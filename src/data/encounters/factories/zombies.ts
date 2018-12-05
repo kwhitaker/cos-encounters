@@ -5,7 +5,7 @@ export const zombies: EncounterFactory = {
   factory: genericEncounter({
     encounter: "3d6 Zombies",
     description:
-      "The ungodly stench of rotting flesh hangs in the air.Up ahead, the walking, moaning corpses of dead men and women lumber about."
+      "The ungodly stench of rotting flesh hangs in the air. Up ahead, the walking, moaning corpses of dead men and women lumber about."
   }),
   dictionary: {
     words: {

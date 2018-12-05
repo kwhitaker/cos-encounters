@@ -1,8 +1,12 @@
 import { Block, styled } from "reakit";
 
+import { PirataFont } from "../theme/globalStyle";
+
 const SubHeader = styled(Block)`
-  font-size: 0.825rem;
-  line-height: 0.825rem;
+  font-family: ${PirataFont};
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin-bottom: 0.75rem;
   color: darkred;
 `;
 
