@@ -2,7 +2,7 @@ import { Flex, styled } from "reakit";
 
 const Scaffold = styled(Flex)`
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   padding: 1.5em;
   align-items: center;
   background-color: ${props => props.theme.scaffold.backgroundColor};

@@ -10,7 +10,7 @@ const DayTheme: CoSTheme = {
     },
     description: {},
     header: {
-      borderColor: "darkred",
+      borderBottom: "2px solid darkred",
       color: "black"
     },
     scaffold: {
