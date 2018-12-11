@@ -13,7 +13,9 @@ const AppHeader = styled(Heading)`
   font-size: 2rem;
   line-height: 2em;
   text-transform: capitalize;
-  border-bottom: 2px solid darkred;
+  color: ${props => props.theme.header.color};
+  border-bottom: ${props => `2px solid ${props.theme.header.borderColor}`};
+  transition: color 200ms linear, border 200ms linear;
 `;
 
 export default as("h1")(AppHeader);

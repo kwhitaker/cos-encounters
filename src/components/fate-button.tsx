@@ -8,8 +8,10 @@ const FateButton = styled(Button)`
   font-size: 1.125rem;
   font-family: ${PirataFont};
   cursor: pointer;
-  color: white;
-  background-color: darkred;
+  background-color: ${({ theme }) => theme.button.backgroundColor};
+  color: ${({ theme }) => theme.button.color};
+  border: ${({ theme }) => theme.button.border};
+  transition: all 200ms ease;
 `;
 
 export default FateButton;

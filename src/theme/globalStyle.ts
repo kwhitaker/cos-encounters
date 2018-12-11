@@ -30,19 +30,18 @@ injectGlobal`
 
   body {
     margin: 0;
-    padding: 1.5rem;
-    width: calc(100vw - 3rem);
-    height: calc(100vh - 3rem);
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
     font-family: "Open Sans", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(246, 246, 246);
   }
 
   #root {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
 `;

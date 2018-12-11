@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { equals } from "ramda";
+import { ThemeProvider } from "reakit";
 
 import { saveEncounter } from "./data/api";
 import encounters from "./data/encounters";
@@ -9,10 +10,12 @@ import { d8, d12 } from "./data/dice-utils";
 import { Encounter, TimeOfDay } from "./data/types";
 import ActionsWrapper from "./components/actions-wrapper";
 import AppHeader from "./components/app-header";
-import AppWrapper from "./components/app-wrapper";
+import AppLayout from "./components/app-layout";
+import Scaffold from "./components/scaffold";
 import EncounterDescription from "./components/encounter-description";
 import FateButton from "./components/fate-button";
 import SubHeader from "./components/sub-header";
+import themes from "./theme/";
 
 interface AppState {
   currentEncounter: undefined | Encounter;
@@ -33,8 +36,8 @@ class App extends PureComponent<{}, AppState> {
   }
 
   componentDidUpdate(_: {}, prevState: AppState) {
-    const { currentEncounter: lastEncounter } = prevState;
-    const { currentEncounter } = this.state;
+    const { currentEncounter: lastEncounter, timeOfDay: prevTime } = prevState;
+    const { currentEncounter, timeOfDay } = this.state;
 
     if (!equals(currentEncounter, lastEncounter) && currentEncounter) {
       saveEncounter(currentEncounter);
@@ -45,18 +48,22 @@ class App extends PureComponent<{}, AppState> {
     const { timeOfDay } = this.state;
 
     return (
-      <AppWrapper column>
-        {this.renderLoading()}
-        {this.renderEncounter()}
-        <ActionsWrapper>
-          <FateButton onClick={this.handleEncounterRolled}>
-            Tempt Fate&hellip;
-          </FateButton>
-          <FateButton onClick={this.handleTimeOfDayChanged}>
-            {timeOfDay === "dayTime" ? "Day" : "Night"}
-          </FateButton>
-        </ActionsWrapper>
-      </AppWrapper>
+      <ThemeProvider theme={themes[timeOfDay]}>
+        <Scaffold column>
+          <AppLayout column>
+            {this.renderLoading()}
+            {this.renderEncounter()}
+            <ActionsWrapper>
+              <FateButton onClick={this.handleEncounterRolled}>
+                Tempt Fate&hellip;
+              </FateButton>
+              <FateButton onClick={this.handleTimeOfDayChanged}>
+                {timeOfDay === "dayTime" ? "Day" : "Night"}
+              </FateButton>
+            </ActionsWrapper>
+          </AppLayout>
+        </Scaffold>
+      </ThemeProvider>
     );
   }
 

@@ -1,8 +1,9 @@
 import { Flex, styled } from "reakit";
 
-const AppWrapper = styled(Flex)`
+const AppLayout = styled(Flex)`
   justify-content: center;
   align-items: center;
+  max-width: 90vw;
   transition: max-width 200ms ease;
 
   @media screen and (min-width: 50em) {
@@ -26,4 +27,6 @@ const AppWrapper = styled(Flex)`
   }
 `;
 
-export default AppWrapper;
+AppLayout.displayName = "AppLayout";
+
+export default AppLayout;
