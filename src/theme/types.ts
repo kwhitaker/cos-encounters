@@ -2,6 +2,7 @@ import { TimeOfDay } from "../data/types";
 
 export type CoSThemeProps = {
   button: React.CSSProperties;
+  copyright: React.CSSProperties;
   description: React.CSSProperties;
   header: React.CSSProperties;
   scaffold: React.CSSProperties;

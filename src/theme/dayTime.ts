@@ -8,6 +8,9 @@ const DayTheme: CoSTheme = {
       color: "white",
       border: "1px solid transparent"
     },
+    copyright: {
+      color: "white"
+    },
     description: {},
     header: {
       borderBottom: "2px solid darkred",

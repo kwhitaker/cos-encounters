@@ -8,6 +8,9 @@ const NightTheme: CoSTheme = {
       color: "black",
       border: "1px solid transparent"
     },
+    copyright: {
+      color: "black"
+    },
     description: {},
     header: {
       borderBottom: "2px solid rgb(94,156,176)",

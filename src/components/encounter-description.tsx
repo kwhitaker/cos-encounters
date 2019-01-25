@@ -8,4 +8,6 @@ const EncounterDescription = styled(Paragraph)`
   border-radius: 6px;
 `;
 
+EncounterDescription.displayName = "EncounterDescription";
+
 export default EncounterDescription;

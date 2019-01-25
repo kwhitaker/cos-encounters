@@ -20,4 +20,6 @@ const FateButton = styled(Button)`
   transition: all 200ms ease;
 `;
 
+FateButton.displayName = "FateButton";
+
 export default FateButton;

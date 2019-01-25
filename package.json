@@ -2,6 +2,7 @@
   "name": "cos-encounters",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kevin-whitaker.net/cos-encounters",
   "dependencies": {
     "@types/ignore-styles": "^5.0.0",
     "airtable": "^0.5.8",

@@ -1,4 +1,4 @@
-import { as, Heading, styled } from "reakit";
+import { Heading, styled } from "reakit";
 
 import { PirataFont } from "../theme/globalStyle";
 import { unwrapCssProps } from "../theme";
@@ -32,4 +32,5 @@ const AppHeader = styled(Heading)`
   }
 `;
 
-export default as("h1")(AppHeader);
+AppHeader.displayName = "AppHeader";
+export default AppHeader;

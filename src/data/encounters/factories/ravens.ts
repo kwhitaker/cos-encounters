@@ -3,7 +3,7 @@ import { Encounter, EncounterFactory } from "../../types";
 const ravenSwarm = {
   encounter: "1d4 swarm of ravens",
   description:
-    "Your presence in this dreary land has not gone unno­ticed. A raven follows you for several minutes while keep­ ing a respectful distance. More ravens begin to take an interest in you. Before long, their numbers swell, and soon hundreds of them are watching you."
+    "Your presence in this dreary land has not gone unno­ticed. A raven follows you for several minutes while keep­ing a respectful distance. More ravens begin to take an interest in you. Before long, their numbers swell, and soon hundreds of them are watching you."
 };
 
 const wereRaven = {

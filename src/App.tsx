@@ -15,6 +15,7 @@ import Scaffold from "./components/scaffold";
 import EncounterDescription from "./components/encounter-description";
 import FateButton from "./components/fate-button";
 import SubHeader from "./components/sub-header";
+import Copyright from "./components/copyright";
 import themes from "./theme/";
 
 interface AppState {
@@ -58,10 +59,13 @@ class App extends PureComponent<{}, AppState> {
                 Tempt Fate&hellip;
               </FateButton>
               <FateButton onClick={this.handleTimeOfDayChanged}>
-                {timeOfDay === "dayTime" ? "Day" : "Night"}
+                {timeOfDay === "dayTime"
+                  ? "Summon the Night"
+                  : "Praise the Morning"}
               </FateButton>
             </ActionsWrapper>
           </AppLayout>
+          <Copyright absolute>Text &copy; Wizards of the Coast.</Copyright>
         </Scaffold>
       </ThemeProvider>
     );
@@ -76,7 +80,7 @@ class App extends PureComponent<{}, AppState> {
     const { encounter, description } = currentEncounter;
     return (
       <>
-        <AppHeader>
+        <AppHeader as="h1">
           <SubHeader>Through the Mists You Spy&hellip;</SubHeader>
           {encounter}!
         </AppHeader>

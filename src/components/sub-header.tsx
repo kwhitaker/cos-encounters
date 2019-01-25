@@ -14,4 +14,6 @@ const SubHeader = styled(Block)`
   color: ${subHeaderColor};
 `;
 
+SubHeader.displayName = "SubHeader";
+
 export default SubHeader;

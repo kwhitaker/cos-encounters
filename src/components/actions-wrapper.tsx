@@ -5,4 +5,6 @@ const ActionsWrapper = styled(Flex)`
   justify-content: center;
 `;
 
+ActionsWrapper.displayName = "ActionsWrapper";
+
 export default ActionsWrapper;
